@@ -120,7 +120,7 @@ const Login = (props) => {
                                     />
                                     <div className='mt-2 text-red-600'>{errors.password}</div>
                                 </div>
-                                <div>
+                                {/* <div>
                                     <label className='inline-flex items-center cursor-pointer'>
                                         <input
                                             id='customCheckLogin'
@@ -132,7 +132,7 @@ const Login = (props) => {
                                             Remember me
                                         </span>
                                     </label>
-                                </div>
+                                </div> */}
 
                                 <div className='text-center mt-6'>
                                     <button
@@ -145,12 +145,13 @@ const Login = (props) => {
                                 </div>
                             </form>
                             {Object.values(errors).map((error) => {
-                                console.log(error);
-                                return (
-                                    <p key={error} className='text-center text-red-500 m-1'>
-                                        {error}
-                                    </p>
-                                );
+                                if (error === 'Wrong credentials.') {
+                                    return (
+                                        <p key={error} className='text-center text-red-500 m-1'>
+                                            {error}
+                                        </p>
+                                    );
+                                } else return <p></p>;
                             })}
                         </div>
                     </div>
@@ -158,7 +159,7 @@ const Login = (props) => {
                         <div className='w-1/2'>
                             <a
                                 href='#pablo'
-                                onClick={(e) => e.preventDefault()}
+                                onClick={() => alert("Sorry, i'm working on it")}
                                 className='text-gray-500'
                             >
                                 <small>Forgot password?</small>
